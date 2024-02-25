@@ -6,6 +6,11 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <a href="{{ route('tasks.create') }}" class="btn btn-md btn-success mb-3">TAMBAH TODO</a>
                 <div class="card">
                     <div class="card-header">
@@ -32,9 +37,9 @@
                                         {{ $task->title }}
                                         <div class="btn-group" role="group" aria-label="Task Actions">
                                             <a href="{{ route('tasks.show', $task->id) }}"
-                                                class="btn btn-info btn-sm">Detail</a>
+                                                class="btn btn-info btn-sm mr-1">Detail</a>
                                             <a href="{{ route('tasks.edit', $task->id) }}"
-                                                class="btn btn-warning btn-sm">Edit</a>
+                                                class="btn btn-warning btn-sm mr-1">Edit</a>
                                             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -51,12 +56,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        @if (session('success'))
-            $(document).ready(function() {
-                toastr.success("{{ session('success') }}");
-            });
-        @endif
-    </script>
 @endsection

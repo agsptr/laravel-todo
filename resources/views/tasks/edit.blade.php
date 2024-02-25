@@ -5,6 +5,11 @@
 @section('content')
     <div class="container mt-4">
         <div class="row justify-content-center">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Edit Tugas</div>
@@ -34,12 +39,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        @if (session('success'))
-            $(document).ready(function() {
-                toastr.success("{{ session('success') }}");
-            });
-        @endif
-    </script>
 @endsection

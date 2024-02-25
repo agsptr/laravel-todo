@@ -91,7 +91,7 @@ class TaskController extends Controller
         $task->due_date = $request->input('due_date');
         $task->save();
 
-        return redirect()->route('tasks.index')->with('success', 'Tugas berhasil diperbarui!');
+        return redirect()->route('tasks.index')->with('info', 'Tugas berhasil diperbarui!');
     }
 
     /**
@@ -103,7 +103,7 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return redirect()->route('tasks.index')->with('success', 'Tugas berhasil dihapus!');
+        return redirect()->route('tasks.index')->with('info', 'Tugas berhasil dihapus!');
     }
 
 
@@ -112,6 +112,6 @@ class TaskController extends Controller
     {
         $task->update(['completed' => true]);
 
-        return redirect()->route('tasks.show', $task->id)->with('success', 'Tugas berhasil ditandai sebagai selesai.');
+        return redirect()->route('tasks.show', $task->id)->with('info', 'Tugas berhasil ditandai sebagai selesai.');
     }
 }
