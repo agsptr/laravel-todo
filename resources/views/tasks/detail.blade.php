@@ -5,11 +5,6 @@
 @section('content')
     <div class="container mt-4">
         <div class="row justify-content-center">
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Detail Tugas</div>
